@@ -2,6 +2,7 @@ package br.com.alura.screenmatch.entiites;
 
 import java.util.Objects;
 
+import br.com.alura.screenmatch.dto.AtualizadorDados;
 import br.com.alura.screenmatch.dto.CadastroFilme;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -80,6 +81,15 @@ public class Filme {
 	public int hashCode() {
 		return Objects.hash(id);
 	}
+	
+	public void atualizaDados(AtualizadorDados dados) {
+		this.nome = dados.nome();
+		this.duracaoEmMinutos = dados.duracao();
+		this.anoLancamento = dados.ano();
+		this.genero = dados.genero();
+	
+	}
+	
 	
 	@Override
 	public boolean equals(Object obj) {
